@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Asset</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h1 {
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        h1.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .btn-primary, .btn-secondary {
+            display: block;
+            margin: 20px auto;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: scale(1.1);
+        }
+        .form-control {
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-4">ADD NEW ASSET</h1>
+        <form id="asset-form" class="mt-4">
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="description" placeholder="Description" required>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="value" placeholder="Value" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="location" placeholder="Location" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Asset</button>
+        </form>
+        <a href="index.html" class="btn btn-secondary mt-4">Back to List</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heading = document.querySelector('h1');
+            heading.classList.add('visible');
+        });
+
+        document.getElementById('asset-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const value = document.getElementById('value').value;
+            const location = document.getElementById('location').value;
+            await fetch('/api/assets', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, description, value, location })
+            });
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
