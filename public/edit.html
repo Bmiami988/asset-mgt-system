@@ -7,7 +7,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            font-family: Arial, sans-serif;
         }
         h1 {
             opacity: 0;
@@ -19,14 +21,25 @@
             transform: translateY(0);
         }
         .btn-primary, .btn-secondary {
-            display: block;
-            margin: 20px auto;
             font-size: 18px;
             font-weight: bold;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }
-        .btn-primary:hover, .btn-secondary:hover {
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
             transform: scale(1.1);
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+        .btn-secondary:hover {
+            transform: scale(1.1);
+            background-color: #5a6268;
         }
         .form-control {
             transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -34,6 +47,11 @@
         .form-control:focus {
             border-color: #80bdff;
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
         }
     </style>
 </head>

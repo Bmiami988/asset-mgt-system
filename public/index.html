@@ -7,7 +7,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            font-family: Arial, sans-serif;
         }
         h1 {
             opacity: 0;
@@ -18,15 +20,34 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .btn-primary {
-            display: block;
-            margin: 20px auto;
+        .btn-primary, .btn-warning, .btn-danger {
             font-size: 18px;
             font-weight: bold;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
         }
         .btn-primary:hover {
             transform: scale(1.1);
+            background-color: #0056b3;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+        }
+        .btn-warning:hover {
+            transform: scale(1.1);
+            background-color: #e0a800;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+        .btn-danger:hover {
+            transform: scale(1.1);
+            background-color: #c82333;
         }
         .form-control {
             transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -35,11 +56,18 @@
             border-color: #80bdff;
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
         }
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+        }
+        .card-body {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mt-4">ATF ASSET MANAGEMENT SYSTEM</h1>
+        <h1 class="text-center mt-4">ASSET MANAGEMENT SYSTEM</h1>
         <div class="form-group">
             <input type="text" id="search" class="form-control" placeholder="Search assets...">
         </div>
